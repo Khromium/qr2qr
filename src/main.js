@@ -60,7 +60,8 @@ function tick() {
             outputData.parentElement.hidden = false;
             outputData.innerText = "data  mask:" + code.mask + "version:" + code.version + "errorlevel:" + code.errorLevel;
 
-
+            generated.hidden = false;
+            downloadButton.hidden = false;
             qrgen.toCanvas(generated, [{ data: code.binaryData, mode: 'byte' }], {
                 maskPattern: code.mask,
                 version: code.version,
@@ -72,6 +73,8 @@ function tick() {
         } else {
             outputMessage.hidden = false;
             outputData.parentElement.hidden = true;
+            generated.hidden = false;
+            downloadButton.hidden = false;
         }
     }
     requestAnimationFrame(tick);
